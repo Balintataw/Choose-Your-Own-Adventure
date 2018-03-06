@@ -61,11 +61,23 @@ window.onload = function() {
         var room1 = prompt(description);
         quit(room1);
         if (room1 == 1) {
-            alert(`The bed is uncomfortable but otherwise unimportant`);
-            cell(setRoom1.descTwo);
+            document.getElementById("myDiv").style.backgroundImage = 'url(./images/bed.jpeg)';
+            setTimeout(function() {
+                alert(`The bed is uncomfortable but otherwise unimportant`);
+                document.getElementById("myDiv").style.backgroundImage = 'url(./images/cell1.jpg)';
+                setTimeout(function() {
+                    cell(setRoom1.descTwo);
+                },500);
+            },500);
         } else if (room1 == 2) {
-            alert(`You look at the mirror and realize it's cracked. You remove a thin piece of glass.`);
-            cellTwo(setRoom2.desc)
+            document.getElementById("myDiv").style.backgroundImage = 'url(./images/mirror.jpg)';
+            setTimeout(function() {
+                alert(`You look at the mirror and realize it's cracked. You remove a thin piece of glass.`);
+                document.getElementById("myDiv").style.backgroundImage = 'url(./images/cell1.jpg)';
+                setTimeout(function() {
+                    cellTwo(setRoom2.desc)
+                },500);
+            },500);
         } else if (room1 == 3) {
             document.getElementById("myDiv").style.backgroundImage = 'url(./images/lock.jpeg)';
             setTimeout(function() {
