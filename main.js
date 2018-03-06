@@ -122,8 +122,9 @@ window.onload = function() {
     function pickLock(description) {
         var chance = Math.floor(Math.random() * 10);
         points+=chance;
+
         alert(description)
-        if (chance > 1) {
+        if (chance > 3) {
             alert(lockMethod.descWin);
             points+=chance;
             hallwayLock(lockHallway.desc);
@@ -157,7 +158,7 @@ window.onload = function() {
     
     function hallwayLockCart() {
         var chance = Math.floor(Math.random() * 10);
-        if (chance > 1) {
+        if (chance > 5) {
             alert(`You hear footsteps approaching the cart. It goes quiet. Then all of a sudden your moving. It's a long perilous trip and you're sure you are going to be caught, but the cart stops and footsteps fade into another room.`);
             alert(`You emerge to see an open cargo door and a truck with keys and no driver. This is your chance. You drive straight to Mexico and grab a beer.`)
             points+=chance;
@@ -171,7 +172,7 @@ window.onload = function() {
     // win scenario 2
     function hallwayLockStairs() {
         var chance = Math.floor(Math.random() * 10);
-        if (chance > 1) {
+        if (chance > 5) {
             alert(`You approach the guards quietly when all of a sudden they take off down another hallway. Probably going to beat another prisoner. But lucky for you, they've left a clear way to the exit.`);
             alert(`You don't stop for one second to wonder why there is an unguarded exit in this prison and you make a break for it, running all the way to Mexico, where you grab a beer`)
             points+=chance;
@@ -187,7 +188,7 @@ window.onload = function() {
     function attackGuard(description) {
         var chance = Math.floor(Math.random() * 10);
         alert(description);
-        if (chance > 1) {
+        if (chance > 3) {
             alert(attackMethod.descWin);
             points+=chance;
             hallwayShank(shankHallway.desc)
@@ -211,7 +212,7 @@ window.onload = function() {
             alert(shankHallway.desc2)
             bloodlust();
         } else {
-            alert(`Please enter "1", "2", or "3"`);
+            alert(`Please enter "1", "2"`);
             points-=3;            
             hallwayShank(shankHallway.desc)
         }
@@ -221,7 +222,7 @@ window.onload = function() {
 
     function uniform() {
         var chance = Math.floor(Math.random() * 10);
-        if (chance > 1) {
+        if (chance > 5) {
             alert(`You reach the top of the stairs and see two other guards. They look at you briefly and go back to whatever they were doing. You don't stop to wonder who these idiots are though and quickly head through the nearest door.`);
             alert(`Any other time, you might wonder how nobody recognizes you, or the blood stains on the uniform, but no one says a word as you walk out the door and head straight for Mexico. You grab a beer.`)
             points+=chance;
@@ -236,7 +237,7 @@ window.onload = function() {
 
     function bloodlust() {
         var chance = Math.floor(Math.random() * 10);
-        if (chance > 1) {
+        if (chance > 5) {
             alert(`With rage in your heart and blood on your hands, you sprint up the stairs. Stabbing wildly, you take out two guards who didn't see you coming. You feel invincible! No one is going to stop you now, but it doesn't matter because there is no one else around to witness this horror. You don't stop to think about why, bolt out the nearest door, and leave a trail of stabby carnage all the way to Mexico, where you grab a beer.`)
             points+=chance;
             winGame()
