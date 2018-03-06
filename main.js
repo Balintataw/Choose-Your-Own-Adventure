@@ -60,6 +60,7 @@ window.onload = function() {
             alert(`You look at the mirror and realize it's cracked. You remove a thin piece of glass.`);
             cellTwo(setRoom2.desc)
         } else if (room1 == 3) {
+            document.getElementById("myDiv").style.backgroundImage = 'url(./images/lock.jpeg)';            
             alert(`The lock is old but sturdy, nothing you can do to it now.`);
             cell(setRoom1.descTwo);
         } else {
@@ -117,7 +118,7 @@ window.onload = function() {
             alert(lockHallway.desc2)
             hallwayLockStairs();
         } else {
-            alert(`Please enter "1", "2", or "3"`);
+            alert(`Please enter "1", "2"`);
             points-=3;
             hallwayLock(lockHallway.desc);
         }
@@ -214,7 +215,7 @@ window.onload = function() {
     }
 
     function winGame() {
-        document.getElementById("myDiv").style.backgroundImage = "url('./images/4.jpg')";
+        document.getElementById("myDiv").style.backgroundImage = 'url(./images/4.jpg)';
         // var elem = document.getElementsByTagName("div")
         // elem.style.backgroundImage = "url('./images/4.jpg')";
         setTimeout(function() {
