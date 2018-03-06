@@ -45,6 +45,12 @@ window.onload = function() {
         }
     }, 500);
     
+    function quit(value) {
+        if (value == null) {
+            alert(`Have it your way`);
+            window.reload();
+        }
+    }
 
     // cell escape branch
 
@@ -53,6 +59,7 @@ window.onload = function() {
         points+=chance;
         
         var room1 = prompt(description);
+        quit(room1);
         if (room1 == 1) {
             alert(`The bed is uncomfortable but otherwise unimportant`);
             cell(setRoom1.descTwo);
@@ -60,9 +67,14 @@ window.onload = function() {
             alert(`You look at the mirror and realize it's cracked. You remove a thin piece of glass.`);
             cellTwo(setRoom2.desc)
         } else if (room1 == 3) {
-            document.getElementById("myDiv").style.backgroundImage = 'url(./images/lock.jpeg)';            
-            alert(`The lock is old but sturdy, nothing you can do to it now.`);
-            cell(setRoom1.descTwo);
+            document.getElementById("myDiv").style.backgroundImage = 'url(./images/lock.jpeg)';
+            setTimeout(function() {
+                alert(`The lock is old but sturdy, nothing you can do to it now.`);
+                document.getElementById("myDiv").style.backgroundImage = 'url(./images/cell1.jpg)';
+                setTimeout(function() {
+                    cell(setRoom1.descTwo);
+                },500);
+            }, 500);            
         } else {
             alert(`Please enter "1", "2", or "3"`)
             points-=3;
@@ -75,6 +87,8 @@ window.onload = function() {
         points+=chance;
 
         var room2 = prompt(description);
+        quit(room2);
+
         if (room2 == 1) {
             alert(`You cut the sheets up and wrap part of the glass to make a crude handle.`);
             attackGuard(attackMethod.desc);
@@ -110,7 +124,10 @@ window.onload = function() {
     function hallwayLock(description) {
         var chance = Math.floor(Math.random() * 10);
         points+=chance;
+
         var hall1 = prompt(description)
+        quit(hall1);
+
         if (hall1 == 1) {
             alert(lockHallway.desc1);
             hallwayLockCart()
@@ -171,7 +188,10 @@ window.onload = function() {
     function hallwayShank(description) {
         var chance = Math.floor(Math.random() * 10);
         points+=chance;
+
         var hall1 = prompt(description);
+        quit(hall1);
+
         if (hall1 == 1) {
             alert(shankHallway.desc1)
             uniform();
@@ -216,8 +236,6 @@ window.onload = function() {
 
     function winGame() {
         document.getElementById("myDiv").style.backgroundImage = 'url(./images/4.jpg)';
-        // var elem = document.getElementsByTagName("div")
-        // elem.style.backgroundImage = "url('./images/4.jpg')";
         setTimeout(function() {
             alert(`Enjoy your beer! Your Score: ${points}`);
         }, 500);    
